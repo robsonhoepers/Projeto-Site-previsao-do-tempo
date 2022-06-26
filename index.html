@@ -9,12 +9,13 @@
                 
            
             .row {
-                display: flex;
-                flex-wrap: wrap;
-                margin-right: 15px;
-                margin-left: 15px;
-                box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: 15px;
+            margin-left: 15px;
+            box-sizing: border-box;
             }
+
             body {
             margin: 0;
             font-family: nunito,sans-serif;
@@ -25,15 +26,44 @@
             text-align: left;
             background-color: #fafbfe;
             }
+            .clFieldset {
+            width: 20%;
+            margin: auto;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #e0daec;
+            font-size: 18px;
+            border-radius: 15px;
+            }
+            .clTitulo {
+            text-align: center;
+            }
+
+            .clBotao{ 
+            
+            color: rgb(7, 1, 1);
+            padding: 2px 2px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            background-color: #5e87f5;       
+            cursor: pointer;
+            margin: 3px;        
+            border: none;
+            border-radius: 15px;                  
+            }
             </style>
         </head>
         
         <body>
             <form action="">
-                <div>
+                <div class="clTitulo ">
                     <h1>PREVISÃO DO TEMPO DE ALGUMAS CIDADES DE SANTA CATARINA</h1>
                 </div>
-                <fieldset>
+                <fieldset class="clFieldset">
                     <div>
                         <label class="clCidade" for="idNomeCidade">Selecione uma Cidade</label>
                             <div class="clCidade"> 
@@ -51,13 +81,13 @@
                                 <option value="447308">Rio dos Cedros</option>
                                 </select>
                             </div>
-                        <div>    
-                             <button type="button" id="idBtChecar">Checar Previsão</button>
+                        <div class="clBotao">    
+                             <button type="button" id="idBtChecar"  class="clBotao">Checar Previsão</button>
                         </div>
                     </div>
                 </fieldset>
                 <div>
-                    <fieldset>
+                    <fieldset class="clFieldset">
                         <div class="clResultado">
                             <!--Nome da Cidade-->
                            <div class="row">
@@ -77,11 +107,11 @@
                            </div>
                             <!--Condição do Tempo-->
                            <div class="row">
-                            <p id="idTempo">Condição do Tempo</p>
+                            <p id="idTempo"></p>
                            </div>
                            <!--Condição do Tempo-->
                            <div class="row">
-                            <p id="idTempo">Condição do Tempo</p>
+                            <p id="idTempo"></p>
                            </div>
 
                         </div>
@@ -90,8 +120,14 @@
         </body>
         <script>
             //declaração das variaveis globais
-
-
+            var nomeCidade
+            var tempo
+            var temperatura
+            var sunset
+            var sunrise
+            var btChecar = document.getElementById("idBtChecar")
+            var ObjCidade
+            //
         </script>
 </html>
 
