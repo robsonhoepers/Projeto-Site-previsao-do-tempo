@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <style>
+                
+           
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin-right: 15px;
+                margin-left: 15px;
+                box-sizing: border-box;
+            }
+            body {
+            margin: 0;
+            font-family: nunito,sans-serif;
+            font-size: .875rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #6c757d;
+            text-align: left;
+            background-color: #fafbfe;
+            }
+            </style>
+        </head>
+        
+        <body>
+            <form action="">
+                <div>
+                    <h1>PREVISÃO DO TEMPO DE ALGUMAS CIDADES DE SANTA CATARINA</h1>
+                </div>
+                <fieldset>
+                    <div>
+                        <label class="clCidade" for="idNomeCidade">Selecione uma Cidade</label>
+                            <div class="clCidade"> 
+                                <select name="nmCidades" id="idCidades">
+                                <option value="90200648">Florianópolis</option>
+                                <option value="456283">Jaraguá do Sul</option>
+                                <option value="455873">Joinville</option>
+                                <option value="26795043">Blumenal</option>
+                                <option value="455856">Criciuma</option>
+                                <option value="455854">Chapecó</option>
+                                <option value="12581617">Balneário Cambori</option>
+                                <option value="455870">Itajaí</option>
+                                <option value="456233">Imbituba</option>
+                                <option value="457944">Rio do Sul</option>
+                                <option value="447308">Rio dos Cedros</option>
+                                </select>
+                            </div>
+                        <div>    
+                             <button type="button" id="idBtChecar">Checar Previsão</button>
+                        </div>
+                    </div>
+                </fieldset>
+                <div>
+                    <fieldset>
+                        <div class="clResultado">
+                            <!--Nome da Cidade-->
+                           <div class="row">
+                            <p id="idNomedaCidade"></p>
+                           </div>
+                            <!--Nascer do Sol-->
+                           <div class="row">
+                            <p id="idSunrise"></p>
+                           </div>
+                            <!--Por do Sul-->
+                           <div class="row">
+                            <p id="idSunset"></p>
+                           </div>
+                            <!--Temperatura atual-->
+                           <div class="row">
+                            <p id="idTemperatura"></p>
+                           </div>
+                            <!--Condição do Tempo-->
+                           <div class="row">
+                            <p id="idTempo">Condição do Tempo</p>
+                           </div>
+                           <!--Condição do Tempo-->
+                           <div class="row">
+                            <p id="idTempo">Condição do Tempo</p>
+                           </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+        </body>
+        <script>
+            //declaração das variaveis globais
+
+
+        </script>
+</html>
+
+https://api.hgbrasil.com/weather?woeid=456283
