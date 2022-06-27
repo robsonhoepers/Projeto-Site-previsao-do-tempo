@@ -65,7 +65,7 @@
                 </div>
                 <fieldset class="clFieldset">
                     <div>
-                        <label class="clCidade" for="idNomeCidade">Selecione uma Cidade</label>
+                        <label class="clCidade" for="idcodigoCidade">Selecione uma Cidade</label>
                             <div class="clCidade"> 
                                 <select name="nmCidades" id="idCidades">
                                 <option value="90200648">Florianópolis</option>
@@ -120,15 +120,84 @@
         </body>
         <script>
             //declaração das variaveis globais
-            var nomeCidade
+            var codigoCidade
             var tempo
             var temperatura
             var sunset
             var sunrise
             var btChecar = document.getElementById("idBtChecar")
-            var ObjCidade
-            //
+            var OBJCidade
+
+
+
+
+
+                /**
+                 * Inicializa o programa ao clicar do botão
+                */ 
+               
+                btChecar.onclick = function(){
+                buscarClima()
+                //imprimir()
+
+                
+                }
+
+                
+                  /**
+                 * Rotina busca clima
+                 * Descrição: utiliza o value da cidade,
+                 * para buscar a condição do clima da cidade selecionada
+                 * 
+                 */
+                
+                function buscarClima(){
+                                        
+                    let codigoCidade = (document.getElementById("idCidades").value)
+                    
+                   
+                   pegarClima(codigoCidade)
+                    
+                    
+                    console.log(codigoCidade);
+                }
+
+                  /**
+                 * Rotina pegar clima
+                 * Descrição: utiliza api ,
+                 * para criar Json com a cidade selecionada.
+                 * 
+                 */
+                function pegarClima(codigoCidade) {
+                //AJAX
+                var xhr = new XMLHttpRequest(); 
+
+                xhr.open("GET", "https://api.hgbrasil.com/weather?woeid=456283")
+
+                xhr.addEventListener("load", function(){
+                    var resposta = xhr.responseText;
+                    imprimirDados(resposta)
+                  
+                })
+                
+                xhr.send()
+
+                }
+
+                function imprimirDados(cidadeJson){
+                console.log(cidadeJson);
+
+                let cidadeObj = JSON.parse(cidadeJson)
+
+                console.log(cidadeObj);
+                console.log("cidade " + enderecoObj.city);
+            }
+
+                //function imprimir(){
+                    
+                    //let nomeCidade = OBJCidade.value[OBJCidade.value.length - 1].city
+                    //console.log(nomeCidade);
+               // }
         </script>
 </html>
 
-https://api.hgbrasil.com/weather?woeid=456283
