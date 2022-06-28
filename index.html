@@ -74,7 +74,7 @@
                                 <option value="26795043">Blumenal</option>
                                 <option value="455856">Criciuma</option>
                                 <option value="455854">Chapecó</option>
-                                <option value="12581617">Balneário Cambori</option>
+                                <option value="12581617">Balneário Camboriú</option>
                                 <option value="455870">Itajaí</option>
                                 <option value="456233">Imbituba</option>
                                 <option value="457944">Rio do Sul</option>
@@ -111,7 +111,7 @@
                            </div>
                            <!--Condição do Tempo-->
                            <div class="row">
-                            <p id="idTempo"></p>
+                            <p id="idHumidade"></p>
                            </div>
 
                         </div>
@@ -172,7 +172,9 @@
                 //AJAX
                 var xhr = new XMLHttpRequest(); 
 
-                xhr.open("GET", "https://api.hgbrasil.com/weather?woeid=456283")
+                //xhr.open("GET", "https://api.hgbrasil.com/weather?format=json-cors&key=8f4f7f91&city_name=Campinas,SP")//buscar por nome da cidade
+                xhr.open("GET", "https://api.hgbrasil.com/weather?format=json-cors&woeid="+codigoCidade+"") //buscar pelo codigo da cidade                
+                //format=json-cors& utilizar para resolver o problema do cors
 
                 xhr.addEventListener("load", function(){
                     var resposta = xhr.responseText;
@@ -188,16 +190,32 @@
                 console.log(cidadeJson);
 
                 let cidadeObj = JSON.parse(cidadeJson)
-
+                document.getElementById("idNomedaCidade").innerText = "Cidade: " + cidadeObj.results.city
+                document.getElementById("idSunrise").innerText = "Nascer do Sol: " + cidadeObj.results.sunrise
+                document.getElementById("idSunset").innerText = "Por do Sul: " + cidadeObj.results.sunset
+                document.getElementById("idTempo").innerText = "Condição do Tempo: " + cidadeObj.results.description
+                document.getElementById("idTemperatura").innerText = "Temperatura Atual: " + cidadeObj.results.temp + "°C"
+                document.getElementById("idHumidade").innerText = "Humidade Relativa: " + cidadeObj.results.humidity
                 console.log(cidadeObj);
-                console.log("cidade " + enderecoObj.city);
+                console.log("cidade " + cidadeObj.results.city);
             }
 
-                //function imprimir(){
-                    
-                    //let nomeCidade = OBJCidade.value[OBJCidade.value.length - 1].city
-                    //console.log(nomeCidade);
-               // }
         </script>
 </html>
 
+<!--cid: ""
+city: "Jaraguá do Sul, SC"
+city_name: "Jaraguá do Sul"
+condition_code: "28"
+condition_slug: "cloudly_night"
+currently: "noite"
+date: "27/06/2022"
+description: "Tempo nublado"
+forecast: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+humidity: 98
+img_id: "28n"
+sunrise: "07:04 am"
+sunset: "05:33 pm"
+temp: 17
+time: "21:06"
+wind_speedy: "0.17 km/h"-->
