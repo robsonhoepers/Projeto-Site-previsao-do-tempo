@@ -22,9 +22,9 @@
             font-size: .875rem;
             font-weight: 400;
             line-height: 1.5;
-            color: #6c757d;
+            color: #0e0c0c;
             text-align: left;
-            background-color: #fafbfe;
+            background-color: #ebedf5;
             }
             .clFieldset {
             width: 20%;
@@ -33,7 +33,7 @@
             padding-right: 50px;
             padding-top: 20px;
             padding-bottom: 20px;
-            background-color: #e0daec;
+            background-color: #0e17a0;
             font-size: 18px;
             border-radius: 15px;
             }
@@ -87,7 +87,7 @@
                     </div>
                 </fieldset>
                 <div>
-                    <fieldset class="clFieldset">
+                    <fieldset class="clFieldset" id="idFildsetResult">
                         <div class="clResultado">
                             <!--Nome da Cidade-->
                            <div class="row">
@@ -127,7 +127,7 @@
             var sunrise
             var btChecar = document.getElementById("idBtChecar")
             var OBJCidade
-
+            var fieldset = document.getElementById("idFildsetResult").hidden = true
 
 
 
@@ -192,11 +192,12 @@
                 let cidadeObj = JSON.parse(cidadeJson)
                 document.getElementById("idNomedaCidade").innerText = "Cidade: " + cidadeObj.results.city
                 document.getElementById("idSunrise").innerText = "Nascer do Sol: " + cidadeObj.results.sunrise
-                document.getElementById("idSunset").innerText = "Por do Sul: " + cidadeObj.results.sunset
+                document.getElementById("idSunset").innerText = "Pôr do Sul: " + cidadeObj.results.sunset
                 document.getElementById("idTempo").innerText = "Condição do Tempo: " + cidadeObj.results.description
                 document.getElementById("idTemperatura").innerText = "Temperatura Atual: " + cidadeObj.results.temp + "°C"
                 document.getElementById("idHumidade").innerText = "Humidade Relativa: " + cidadeObj.results.humidity
                 console.log(cidadeObj);
+                let fieldset = document.getElementById("idFildsetResult").hidden = false
                 console.log("cidade " + cidadeObj.results.city);
             }
 
